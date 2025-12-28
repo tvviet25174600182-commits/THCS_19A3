@@ -1,13 +1,9 @@
-def kiem_tra_so_armstrong(n):
-    chuoi_so = str(n)
-    tong_luy_thua = 0
+ds_so = [1, 3, 5, 7, 9, 11, 13]
 
-    for chu_so in chuoi_so:
-        chu_so_nguyen = int(chu_so)
-        tong_luy_thua += chu_so_nguyen ** 3
-    return n == tong_luy_thua
-n = int(input("nhập số nguyên dương n :"))
-if kiem_tra_so_armstrong(n):
-    print("TRUE",n)
-else:
-    print("FALSE",n)
+with open("so_nguyen.txt", "w", encoding="utf-8") as f:
+   
+    for so in ds_so:
+       
+        f.write(str(so) + "\n")
+
+print("Đã ghi danh sách số nguyên vào tập tin so_nguyen.txt")

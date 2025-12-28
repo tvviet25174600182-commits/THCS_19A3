@@ -1,8 +1,18 @@
-def kiem_tra_so_doi_xung(n):
-    str_n = str(n)
-    return str_n[::-1]
-n = int(input("nhập số nguyên dương n :"))
-if kiem_tra_so_doi_xung(n):
-    print(" TRUE",n)
+import os
+
+nguon = "tep_nguon.bin"
+dich = "tep_dich.bin"
+
+if not os.path.exists(nguon):
+    print("Tập tin nguồn không tồn tại!")
 else:
-    print("FALSE",n)
+    with open(nguon, "rb") as f_nguon:
+        with open(dich, "wb") as f_dich:
+            while True:
+                data = f_nguon.read(1024)
+                if not data:
+                    break
+                f_dich.write(data)
+
+    print("Sao chép tập tin thành công!")
+

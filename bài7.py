@@ -1,14 +1,17 @@
-def la_so_hoan_hao(n):
-    tong_uoc = 0
-    for i in range(1,n):
-        if n % i == 0 :
-            tong_uoc += 1 
-    return tong_uoc == n
-def tinh_tong_so_hoan_hao(a,b):
-    tong = 0 
-    for n in range (a,b+1):
-        if la_so_hoan_hao(n):
-            tong += n 
-    return tong
-a = int(input("nhập số nguyên dương a :"))
-b = int(input("nhập số nguyên dương b (>= a):"))
+import os
+
+os.makedirs("du_an/data", exist_ok=True)
+os.makedirs("du_an/output", exist_ok=True)
+
+open("du_an/data/input.txt", "w").close()
+open("du_an/output/result.txt", "w").close()
+open("du_an/main.py", "w").close()
+
+print("Cấu trúc thư mục và tập tin vừa tạo:\n")
+
+for thu_muc in os.listdir("du_an"):
+    duong_dan = os.path.join("du_an", thu_muc)
+    print(thu_muc)
+    if os.path.isdir(duong_dan):
+        for tap_tin in os.listdir(duong_dan):
+            print("  ", tap_tin)
