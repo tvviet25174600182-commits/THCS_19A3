@@ -1,9 +1,16 @@
-def giai_phuong_trinh_bac_nhat(a, b):
-    if b == 0:
-        if a == 0:
-            return "vô số nghiệm"
-        else:
-            return "vô nghiệm"
+with open("python.txt", "r", encoding="utf-8") as f:
+    text = f.read()
+
+words = text.lower().split()
+
+tan_suat = {}
+
+for word in words:
+    if word in tan_suat:
+        tan_suat[word] += 1
     else:
-        return "-b/a"
-print(giai_phuong_trinh_bac_nhat(2, 4))     
+        tan_suat[word] = 1
+
+print("Tần suất xuất hiện của các từ: ")
+for word, count in tan_suat.items():
+    print(f"{word}: {count}")

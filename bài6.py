@@ -1,16 +1,19 @@
-def la_so_nguyen_to(n) :
-    if n < 2 :
-        return False
-    for i in range(2, int( n ** 0.5)+1):
-        if n % i == 0 :
-            return False
-    return True
-def  in_so_nguyen_to_trong_khoang(a,b):
-    for n in range(a ,b + 1):
-        if la_so_nguyen_to(n):
-            print(n,end= ' ')
-    print()
-a = int(input("nhập giá trị a :"))
-b = int(input(" nhập giá trị b :"))
-print(f" các số nguyên tố trong khoảng từ { a} đến {b} là :")
+with open("nhan_vien.csv", "w", newline="", encoding="utf-8") as f:
+    fieldnames = ["ID", "Tên", "Lương"]
+    writer = csv.DictWriter(f, fieldnames=fieldnames)
 
+    writer.writeheader()
+
+    writer.writerow({"ID": 1, "Tên": "An", "Lương": 45000})
+    writer.writerow({"ID": 2, "Tên": "Bình", "Lương": 60000})
+    writer.writerow({"ID": 3, "Tên": "Chi", "Lương": 75000})
+    writer.writerow({"ID": 4, "Tên": "Dũng", "Lương": 50000})
+
+print("Nhân viên có mức lương trên 50000:\n")
+
+with open("nhan_vien.csv", "r", encoding="utf-8") as f:
+    reader = csv.DictReader(f)
+
+    for row in reader:
+        if int(row["Lương"]) > 50000:
+            print(f"ID: {row['ID']}, Tên: {row['Tên']}, Lương: {row['Lương']}")

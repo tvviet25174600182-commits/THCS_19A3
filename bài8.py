@@ -1,10 +1,14 @@
-def tim_so_le_lon_nhat(a,b,c):
-    so_le = [x for x in [a, b, c] if x % 2 != 0]
-    if not so_le :
-        return -1
-    return max(so_le)
-a = int(input("nhập a :"))
-b = int(input("nhập b :"))
-c = int(input("nhập c :"))
-ket_qua = tim_so_le_lon_nhat(a , b ,c)
-print("số lẻ lớn nhất là :",ket_qua)
+import os
+
+os.mkdir("temp_files")
+
+with open("temp_files/file.txt", "w", encoding="utf-8"):
+    pass
+
+os.rename("temp_files/file.txt", "temp_files/new_file.txt")
+
+os.rename("temp_files/new_file.txt", "new_file.txt")
+
+os.rmdir("temp_files")
+
+print("Hoàn thành tạo, đổi tên, di chuyển và xóa thư mục.")
